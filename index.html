@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+</head>
+
+<body>
+    <div class="home-page-parent-container">
+        <div id="loading-bar" class="loading-bar" style="display: none;">
+            <div class="loader"></div>
+            <p>Loading...</p>
+        </div>
+
+        <div id="map" style="height: 500px; width: 100%;"></div>
+        <div class="user-interactive-menu-container-home-page">
+            <h2>Filters</h2>
+            <div class="degree-type-container-inner standard-type-container">
+                <h4>Degree Type</h4>
+                <div class="input-checkbox-container">
+                    <label for="all-check">All</label>
+                    <input onclick="checkAll()" type="checkbox" name="All" id="all-check" checked><br>
+
+                    <label for="ug-checkbox">UG</label>
+                    <input type="checkbox" name="UG" id="ug-checkbox" checked><br>
+
+                    <label for="pg-checkbox">PG</label>
+                    <input type="checkbox" name="PG" id="pg-checkbox" checked><br>
+
+                    <label for="g-checkbox">G</label>
+                    <input type="checkbox" name="G" id="g-checkbox" checked><br>
+                </div>
+            </div>
+
+            <div class="department-type-container-inner standard-type-container">
+                <h4>Department Type</h4>
+                <div class="input-checkbox-container">
+                    <label for="cs-checkbox">CS</label>
+                    <input type="checkbox" name="CS" id="cs-checkbox" checked><br>
+
+                    <label for="ee-checkbox">EE</label>
+                    <input type="checkbox" name="EE" id="ee-checkbox" checked><br>
+
+                    <label for="mg-checkbox">MG</label>
+                    <input type="checkbox" name="MG" id="mg-checkbox" checked><br>
+
+                    <label for="sh-checkbox">SH</label>
+                    <input type="checkbox" name="SH" id="sh-checkbox" checked><br>
+
+                    <label for="amhs-checkbox">AMHS</label>
+                    <input type="checkbox" name="AMHS" id="amhs-checkbox" checked><br>
+                </div>
+            </div>
+
+            <div class="gender-type-container-inner standard-type-container">
+                <h4>Gender</h4>
+                <div class="input-checkbox-container">
+                    <label for="male-checkbox">Male</label>
+                    <input type="checkbox" name="Male" id="male-checkbox" checked><br>
+
+                    <label for="female-checkbox">Female</label>
+                    <input type="checkbox" name="Female" id="female-checkbox" checked><br>
+                </div>
+            </div>
+
+            <div class="legend-container-main">
+                <h2>Legend</h2>
+                <div class="legend-main-content-container">
+                    <div class="left-container-main">
+                        <div class="legend-item">
+                            <p style="color: #ffe700;">CS</p>
+                        </div>
+                        <div class="legend-item">
+                            <p style="color: #f000ff;">EE</p>
+                        </div>
+                        <div class="legend-item">
+                            <p style="color: #4deeea;">MG</p>
+                        </div>
+                        <div class="legend-item">
+                            <p style="color: #C0BBF9;">SH</p>
+                        </div>
+                        <div class="legend-item">
+                            <p style="color: #660066;">AMHS</p>
+                        </div>
+                    </div>
+
+                    <div class="right-container-main">
+                        <div class="shape-legend-container">
+                            <div class="shape-legend-item">
+                                <div class="shape-circle"></div>
+                                <p>UG</p>
+                            </div>
+                            <div class="shape-legend-item">
+                                <div class="shape-square"></div>
+                                <p>PG</p>
+                            </div>
+                            <div class="shape-legend-item">
+                                <div class="shape-triangle"></div>
+                                <p>G</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="./testScript.js"></script>
+    </div>
+
+    
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoCmnLSTMCBPnbqrG3_71ZztjLItFsnfk&callback=initMap"></script>
+</body>
+
+</html>
