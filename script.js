@@ -1,36 +1,4 @@
 
-const checkAll = () => {
-    if (document.getElementById('all-check').checked) {
-        document.getElementById('ug-checkbox').checked = true;
-        document.getElementById('pg-checkbox').checked = true;
-        document.getElementById('g-checkbox').checked = true;
-        document.getElementById('cs-checkbox').checked = true;
-        document.getElementById('ee-checkbox').checked = true;
-        document.getElementById('mg-checkbox').checked = true;
-        document.getElementById('sh-checkbox').checked = true;
-        document.getElementById('amhs-checkbox').checked = true;
-        document.getElementById('male-checkbox').checked = true;
-        document.getElementById('female-checkbox').checked = true;
-
-    }
-}
-
-$(document).ready(function () {
-    $("input[type='checkbox']").change(function () {
-        if ($("input[type='checkbox']:checked").length - 1 === $("input[type='checkbox']").length - 1) {
-            $("#all-check").prop("checked", true);
-            $('#all-check').prop('disabled', true);
-        } else {
-            $("#all-check").prop("checked", false);
-            $('#all-check').prop('disabled', false);
-        }
-    });
-
-
-});
-
-
-
 var darkModeStyle = [
     {
         "elementType": "geometry",
@@ -201,71 +169,81 @@ var darkModeStyle = [
     }
 ];
 
+const selectedDegreeLevel = { UG: false, PG: false, G: false };
+const departmentName = { CS: false, EE: false, MG: false, SH: false, AMHS: false };
+const gender = { M: false, F: false };
 
-var currentCenter = { lat: 33.681200, lng: 72.830000, title: 'Location 1A' };
+const currentCenter = { lat: 33.681200, lng: 72.830000, title: 'Location 1A' };
 
-
-var mapOptions = {
+const mapOptions = {
     center: currentCenter,
     zoom: 15,
     styles: darkModeStyle
 };
 
-var allGeoLocation = [];
-var currentGeoLocations = [];
+let allGeoLocation = [];
+let currentGeoLocations = [];
+let map;
+let markersAndShapes = []; // Array to keep track of all markers and shapes
 
-function initMap() {
+// Function to read CSV file and process data
+const fetchDataFromCSV = async () => {
+    try {
+        const response = await fetch('./mainTransportData.csv');
+        const csvText = await response.text();
+        
+        return new Promise((resolve, reject) => {
+            Papa.parse(csvText, {
+                header: true,
+                skipEmptyLines: true,
+                complete: (results) => {
+                    const locationsArray = results.data.map(row => ({
+                        address: row.Address,
+                        degreeLevel: row.DegreeLevel,
+                        departmentName: row.DepartmentName,
+                        GENDER: row.GENDER,
+                        coordinates: { lat: 0, lng: 0 } // Placeholder for coordinates
+                    }));
 
-    // Get the geolocation of the string locations
-
-    const getGeolocation = async () => {
-
-        document.getElementById('loading-bar').style.display = 'block';
-
-        let responseAddresses = await fetch('https://localhost:44314/Home/getAddresses', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
+                    resolve(locationsArray);
+                },
+                error: reject
+            });
         });
+    } catch (error) {
+        document.getElementById('loading-bar').style.display = 'none';
+        console.error('Error fetching the CSV file:', error);
+        return [];
+    }
+};
 
-        responseAddresses = await responseAddresses.json();
-
-        var locationsArray = responseAddresses.data;
-
-        // latest code [converts address to lat lon and stores in locationsArray]
-
-        var stringLocations = locationsArray.map(location => location.address);
-
-
-        let geolocations = [];
-
+// Function to initialize the map
+function initMap() {
+    document.getElementById('loading-bar').style.display = 'block';
+    fetchDataFromCSV().then(async (locationsArray) => {
+        // Convert addresses to geolocations
+        const geolocations = [];
         for (let i = 0; i < locationsArray.length; i++) {
             try {
-                let response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(locationsArray[i].address)}&key=AIzaSyDoCmnLSTMCBPnbqrG3_71ZztjLItFsnfk`, {
-                    method: 'GET'
-                });
-
+                const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(locationsArray[i].address)}&key=AIzaSyDoCmnLSTMCBPnbqrG3_71ZztjLItFsnfk`);
                 if (!response.ok) {
-                    console.error(`Failed to fetch geolocation for ${stringLocations[i]}. Status: ${response.status}`);
+                    console.error(`Failed to fetch geolocation for ${locationsArray[i].address}. Status: ${response.status}`);
                     continue;
                 }
-
-                let data = await response.json();
-
+                const data = await response.json();
                 if (data.status === 'ZERO_RESULTS') {
-                    console.warn(`No geolocation results for ${stringLocations[i]}`);
+                    console.warn(`No geolocation results for ${locationsArray[i].address}`);
                     continue;
                 }
-
                 if (data.results.length > 0) {
-                    geolocations.push(data.results[0].geometry.location);
-                    locationsArray[i].coordinates = data.results[0].geometry.location;
+                    const location = data.results[0].geometry.location;
+                    geolocations.push(location);
+                    locationsArray[i].coordinates = location;
                 } else {
-                    console.warn(`Unexpected response format for ${stringLocations[i]}`);
+                    console.warn(`Unexpected response format for ${locationsArray[i].address}`);
                 }
             } catch (error) {
-                console.error(`Error fetching geolocation for ${stringLocations[i]}:`, error);
+                console.error(`Error fetching geolocation for ${locationsArray[i].address}:`, error);
             }
         }
 
@@ -274,146 +252,46 @@ function initMap() {
         } else {
             console.warn('No valid geolocations found to set map center.');
         }
+
+        if (!map) {
+            map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        }
+
+        allGeoLocation = locationsArray;
+        currentGeoLocations = locationsArray;
+
+        updateMapShapes();
         document.getElementById('loading-bar').style.display = 'none';
-
-        return locationsArray;
-    };
-
-    const contentString =
-        '<div id="content">' +
-        '<div id="siteNotice">' +
-        "</div>" +
-        '<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
-        '<div id="bodyContent">' +
-        "<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large " +
-        "sandstone rock formation in the southern part of the " +
-        "Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) " +
-        "south west of the nearest large town, Alice Springs; 450&#160;km " +
-        "(280&#160;mi) by road. Kata Tjuta and Uluru are the two major " +
-        "features of the Uluru - Kata Tjuta National Park. Uluru is " +
-        "sacred to the Pitjantjatjara and Yankunytjatjara, the " +
-        "Aboriginal people of the area. It has many springs, waterholes, " +
-        "rock caves and ancient paintings. Uluru is listed as a World " +
-        "Heritage Site.</p>" +
-        '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">' +
-        "https://en.wikipedia.org/w/index.php?title=Uluru</a> " +
-        "(last visited June 22, 2009).</p>" +
-        "</div>" +
-        "</div>";
-
-    const infowindow = new google.maps.InfoWindow({
-        content: contentString,
-        ariaLabel: "Uluru",
-    });
-
-
-    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-    getGeolocation().then((geolocations) => {
-        currentGeoLocations = geolocations;
-        allGeoLocation = geolocations;
-        const size = 0.0010;
-        let fillColor;
-        geolocations.forEach(function (location) {
-            if (location.departmentName === 'CS') { fillColor = '#ffe700' } else if (location.departmentName === 'EE') { fillColor = '#f000ff' } else if (location.departmentName === 'MG') { fillColor = '#4deeea' } else if (location.departmentName === 'SH') { fillColor = '#C0BBF9' } else { fillColor = '#660066' }
-
-            if (location.degreeLevel === 'UG') {
-                new google.maps.Circle({
-                    strokeColor: '#FF0000',
-                    strokeOpacity: 0.8,
-                    strokeWeight: 2,
-                    fillColor: fillColor,
-                    fillOpacity: 0.35,
-                    map: map,
-                    center: location.coordinates,
-                    radius: 200
-                });
-            }
-
-            else if (location.degreeLevel === 'PG') {
-                const squareBounds = [
-                    { lat: location.coordinates.lat + size, lng: location.coordinates.lng - size },
-                    { lat: location.coordinates.lat + size, lng: location.coordinates.lng + size },
-                    { lat: location.coordinates.lat - size, lng: location.coordinates.lng + size },
-                    { lat: location.coordinates.lat - size, lng: location.coordinates.lng - size }
-                ];
-
-                new google.maps.Polygon({
-                    paths: squareBounds,
-                    strokeColor: '#FF0000',
-                    strokeOpacity: 0.8,
-                    strokeWeight: 2,
-                    fillColor: fillColor,
-                    fillOpacity: 0.35,
-                    map: map
-                });
-            }
-
-            else {
-
-                const triangleBounds = [
-                    { lat: location.coordinates.lat + size, lng: location.coordinates.lng - size },
-                    { lat: location.coordinates.lat - size, lng: location.coordinates.lng - size },
-                    { lat: location.coordinates.lat, lng: location.coordinates.lng + size }
-                ];
-
-                new google.maps.Polygon({
-                    paths: triangleBounds,
-                    strokeColor: '#FF0000',
-                    strokeOpacity: 0.8,
-                    strokeWeight: 2,
-                    fillColor: fillColor,
-                    fillOpacity: 0.35,
-                    map: map
-                });
-            }
-        });
     });
 }
 
-var selectedDegreeLevel = {
-    UG: true,
-    PG: true,
-    G: true
-};
-
-var departmentName = {
-    CS: true,
-    EE: true,
-    MG: true,
-    SH: true,
-    AMHS: true
-};
-
-var gender = {
-    M: true,
-    F: true
+// Function to add a marker or shape to the array
+function addToMarkersAndShapes(item) {
+    markersAndShapes.push(item);
 }
 
-
-var mapOptions = {
-    center: currentCenter,
-    zoom: 15,
-    styles: darkModeStyle
-};
-
-const clearMapShapes = () => {
-    markers.forEach(marker => marker.setMap(null));
-    shapes.forEach(shape => shape.setMap(null));
-    markers = [];
-    shapes = [];
+// Function to remove all markers and shapes from the map
+function clearMap() {
+    markersAndShapes.forEach(item => item.setMap(null));
+    markersAndShapes = []; // Clear the array after removing all items
 }
 
-
+// Function to update map shapes based on current filters
 const updateMapShapes = () => {
-    clearMapShapes();
+    clearMap(); // Clear existing markers and shapes
+
     currentGeoLocations.forEach(curr => {
         const size = 0.0010;
         let fillColor;
-        if (curr.departmentName === 'CS') { fillColor = '#ffe700' } else if (curr.departmentName === 'EE') { fillColor = '#f000ff' } else { fillColor = '#4deeea' }
+        if (curr.departmentName === 'CS') { fillColor = '#ffe700'; }
+        else if (curr.departmentName === 'EE') { fillColor = '#f000ff'; }
+        else if (curr.departmentName === 'MG') { fillColor = '#4deeea'; }
+        else if (curr.departmentName === 'SH') { fillColor = '#C0BBF9'; }
+        else { fillColor = '#660066'; }
 
+        let shape;
         if (curr.degreeLevel === 'UG') {
-            new google.maps.Circle({
+            shape = new google.maps.Circle({
                 strokeColor: '#FF0000',
                 strokeOpacity: 0.8,
                 strokeWeight: 2,
@@ -423,17 +301,14 @@ const updateMapShapes = () => {
                 center: curr.coordinates,
                 radius: 200
             });
-        }
-
-        else if (curr.degreeLevel === 'PG') {
+        } else if (curr.degreeLevel === 'PG') {
             const squareBounds = [
                 { lat: curr.coordinates.lat + size, lng: curr.coordinates.lng - size },
                 { lat: curr.coordinates.lat + size, lng: curr.coordinates.lng + size },
                 { lat: curr.coordinates.lat - size, lng: curr.coordinates.lng + size },
                 { lat: curr.coordinates.lat - size, lng: curr.coordinates.lng - size }
             ];
-
-            new google.maps.Polygon({
+            shape = new google.maps.Polygon({
                 paths: squareBounds,
                 strokeColor: '#FF0000',
                 strokeOpacity: 0.8,
@@ -442,17 +317,13 @@ const updateMapShapes = () => {
                 fillOpacity: 0.35,
                 map: map
             });
-        }
-
-        else {
-
+        } else {
             const triangleBounds = [
                 { lat: curr.coordinates.lat + size, lng: curr.coordinates.lng - size },
                 { lat: curr.coordinates.lat - size, lng: curr.coordinates.lng - size },
                 { lat: curr.coordinates.lat, lng: curr.coordinates.lng + size }
             ];
-
-            new google.maps.Polygon({
+            shape = new google.maps.Polygon({
                 paths: triangleBounds,
                 strokeColor: '#FF0000',
                 strokeOpacity: 0.8,
@@ -462,8 +333,38 @@ const updateMapShapes = () => {
                 map: map
             });
         }
-    })
+        addToMarkersAndShapes(shape);
+    });
 }
+
+// Other code remains unchanged
+
+const checkAll = () => {
+    if (document.getElementById('all-check').checked) {
+        document.getElementById('ug-checkbox').checked = true;
+        document.getElementById('pg-checkbox').checked = true;
+        document.getElementById('g-checkbox').checked = true;
+        document.getElementById('cs-checkbox').checked = true;
+        document.getElementById('ee-checkbox').checked = true;
+        document.getElementById('mg-checkbox').checked = true;
+        document.getElementById('sh-checkbox').checked = true;
+        document.getElementById('amhs-checkbox').checked = true;
+        document.getElementById('male-checkbox').checked = true;
+        document.getElementById('female-checkbox').checked = true;
+    }
+};
+
+$(document).ready(function () {
+    $("input[type='checkbox']").change(function () {
+        if ($("input[type='checkbox']:checked").length - 1 === $("input[type='checkbox']").length - 1) {
+            $("#all-check").prop("checked", true);
+            $('#all-check').prop('disabled', true);
+        } else {
+            $("#all-check").prop("checked", false);
+            $('#all-check').prop('disabled', false);
+        }
+    });
+});
 
 document.querySelectorAll('input[type="checkbox"]').forEach(function (checkbox) {
     checkbox.addEventListener('change', function () {
