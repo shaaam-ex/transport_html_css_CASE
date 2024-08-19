@@ -290,6 +290,8 @@ const updateMapShapes = () => {
         else { fillColor = '#660066'; }
 
         let shape;
+        const infoWindowContent = `<div><strong>${curr.address}</strong><br>Degree Level: ${curr.degreeLevel}<br>Department: ${curr.departmentName}<br>Gender: ${curr.GENDER}</div>`;
+
         if (curr.degreeLevel === 'UG') {
             shape = new google.maps.Circle({
                 strokeColor: '#FF0000',
@@ -299,7 +301,8 @@ const updateMapShapes = () => {
                 fillOpacity: 0.35,
                 map: map,
                 center: curr.coordinates,
-                radius: 200
+                radius: 200,
+                clickable: true // Ensure the circle is clickable
             });
         } else if (curr.degreeLevel === 'PG') {
             const squareBounds = [
@@ -315,7 +318,8 @@ const updateMapShapes = () => {
                 strokeWeight: 2,
                 fillColor: fillColor,
                 fillOpacity: 0.35,
-                map: map
+                map: map,
+                clickable: true // Ensure the polygon is clickable
             });
         } else {
             const triangleBounds = [
@@ -330,10 +334,24 @@ const updateMapShapes = () => {
                 strokeWeight: 2,
                 fillColor: fillColor,
                 fillOpacity: 0.35,
-                map: map
+                map: map,
+                clickable: true // Ensure the polygon is clickable
             });
         }
+
         addToMarkersAndShapes(shape);
+
+        // Create a new InfoWindow for each shape
+        const infoWindow = new google.maps.InfoWindow({
+            content: infoWindowContent
+        });
+
+        // Add event listener to open info window when shape is clicked
+        shape.addListener('click', function () {
+            infoWindow.setPosition(curr.coordinates);
+            infoWindow.setContent(infoWindowContent);
+            infoWindow.open(map, shape); // Use 'shape' as the anchor for the InfoWindow
+        });
     });
 }
 
