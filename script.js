@@ -189,7 +189,8 @@ let markersAndShapes = []; // Array to keep track of all markers and shapes
 // Function to read CSV file and process data
 const fetchDataFromCSV = async () => {
     try {
-        const response = await fetch('./mainTransportData.csv');
+        // const response = await fetch('./mainTransportData.csv');
+        const response = await fetch('./testTransportData.csv');
         const csvText = await response.text();
         
         return new Promise((resolve, reject) => {

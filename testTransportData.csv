@@ -1,0 +1,161 @@
+Address,Name,Roll No,DegreeLevel,DepartmentName,GENDER
+"Multigardens Zoo, 708 Street 33, Block B Block C Multi Gardens B-17, Islamabad, Rawalpindi, Islamabad Capital Territory 44000, Pakistan",Ali,X,UG,CS,M
+"Ground Floor, J7 Emporium, Block C Multi Gardens B-17, Islamabad, Islamabad Capital Territory 44010, Pakistan",Raza,X,PG,CS,F
+"Shop Ground Floor, Capital Square, Block C Multi Gardens B-17, Islamabad, Rawalpindi, Islamabad Capital Territory, Pakistan",Zain,X,G,MG,F
+"MRVF+CHG, Street 33, Block A Sector B-17 Multi Gardens B-17, Islamabad, Rawalpindi, Islamabad Capital Territory, Pakistan",Malik,X,PG,EE,F
+"MRQ7+MC7, Unnamed Road, Islamabad, Rawalpindi, Islamabad Capital Territory, Pakistan",Hassaan,X,UG,SH,M
+"MRJ3+WC7, Islamabad, Rawalpindi, Punjab, Pakistan",Naushad,X,G,AMHS,F
+"J33M+3HV, Chaklala Cantt., Rawalpindi, Punjab 46000, Pakistan",Abdullah,X,PG,SH,M
+"Bank Rd, Saddar, Rawalpindi, Punjab 46000, Pakistan",Safadar,X,UG,EE,M
+"M65, 6/A Adam Jee Rd, near GTS Adda, Saddar, Rawalpindi, Punjab 46000, Pakistan",Ameen,X,G,SH,F
+"H3X4+3QW, Kashmir Rd, Saddar, Rawalpindi, Punjab 46000, Pakistan",Ullah,X,G,AMHS,F
+"Murree Road? Saddar, Rawalpindi, Punjab 46000, Pakistan",Abdul,X,UG,AMHS,F
+"Bank Rd, Saddar, Rawalpindi, Punjab 46000, Pakistan",Rehman,X,PG,SH,M
+"The Mall Rd, Rawalpindi, Punjab 46000, Pakistan",Zameer,X,G,EE,F
+"Tamiz-ud-Din Rd, Rawalpindi, Punjab 46000, Pakistan",Mawra,X,G,CS,M
+"H3W3+7P7, 3297 Adam Jee Rd, Saddar, Rawalpindi, Punjab 46000, Pakistan",Hasan,X,UG,CS,F
+"H3X3+Q85, Saddar, Rawalpindi, Punjab 46000, Pakistan",Ibrahim,X,PG,CS,F
+"J323+FV9, Madina Market, Adamjee Rd, Ahata Mithu Khan, Saddar, Saddar, Rawalpindi, Punjab 46000, Pakistan",Ameen,X,G,AMHS,M
+"24-25 GF Majeed Plaza Saddar, Bank Rd, Saddar, Rawalpindi, Punjab 46000, Pakistan",Adil,X,PG,SH,M
+"Office 5 & 6,2nd Floor, Karachi Company, Mall 9 Plaza, Markaz G 9 Markaz G-9, Islamabad, Islamabad Capital Territory 44000, Pakistan",Khan,X,UG,AMHS,M
+"Street 10, F-7/1, Islamabad, Islamabad Capital Territory 44000, Pakistan",Ahmed,X,UG,CS,M
+"Liberty Market, Gulberg III, Lahore, Punjab 54660, Pakistan",Ayesha,X,PG,EE,F
+"Main Boulevard, Johar Town, Lahore, Punjab 54782, Pakistan",Bilal,X,G,SH,M
+"University Road, Gulshan-e-Iqbal, Karachi, Sindh 75300, Pakistan",Fatima,X,UG,AMHS,F
+"GT Road, Near Peshawar Mor, Peshawar, Khyber Pakhtunkhwa 25000, Pakistan",Usman,X,PG,CS,M
+"Satellite Town, Block B, Rawalpindi, Punjab 46300, Pakistan",Sara,X,G,MG,F
+"Model Town, Block C, Lahore, Punjab 54000, Pakistan",Omar,X,UG,EE,M
+"Clifton, Block 5, Karachi, Sindh 75600, Pakistan",Zainab,X,PG,SH,F
+"G-11 Markaz, Islamabad, Islamabad Capital Territory 44000, Pakistan",Hassan,X,G,CS,M
+"Saddar Bazaar, Rawalpindi, Punjab 46000, Pakistan",Nida,X,UG,AMHS,F
+"Hyderabad Bypass, Hyderabad, Sindh 71000, Pakistan",Aliya,X,PG,MG,F
+"Jinnah Avenue, Blue Area, Islamabad, Islamabad Capital Territory 44000, Pakistan",Kamran,X,G,EE,M
+"Murree Road, Bhara Kahu, Islamabad, Islamabad Capital Territory 46000, Pakistan",Maria,X,UG,SH,F
+"F-10 Markaz, Islamabad, Islamabad Capital Territory 44000, Pakistan",Salman,X,PG,CS,M
+"Defense Housing Authority, Phase 5, Karachi, Sindh 75500, Pakistan",Maham,X,G,AMHS,F
+"Hayatabad, Phase 3, Peshawar, Khyber Pakhtunkhwa 25000, Pakistan",Danish,X,UG,MG,M
+"Gulberg Greens, Islamabad Expressway, Islamabad, Islamabad Capital Territory 44000, Pakistan",Zara,X,PG,EE,F
+"Chandni Chowk, Rawalpindi, Punjab 46000, Pakistan",Faisal,X,G,SH,M
+"Bagh-e-Jinnah, Mall Road, Lahore, Punjab 54000, Pakistan",Rabia,X,UG,CS,F
+"Port Grand, MT Khan Road, Karachi, Sindh 74000, Pakistan",Farhan,X,PG,AMHS,M
+"PWD Housing Society, Islamabad Expressway, Islamabad, Islamabad Capital Territory 44000, Pakistan",Hiba,X,G,MG,F
+"University of Agriculture, Faisalabad, Punjab 38000, Pakistan",Naveed,X,UG,EE,M
+"Clock Tower, Saddar Bazaar, Faisalabad, Punjab 38000, Pakistan",Sana,X,PG,SH,F
+"Mansehra Road, Abbottabad, Khyber Pakhtunkhwa 22010, Pakistan",Arslan,X,G,CS,M
+"Latifabad Unit 6, Hyderabad, Sindh 71000, Pakistan",Kiran,X,UG,AMHS,F
+"Committee Chowk, Rawalpindi, Punjab 46000, Pakistan",Rehan,X,PG,MG,M
+"Main Boulevard, DHA Phase 3, Lahore, Punjab 54792, Pakistan",Areeba,X,G,EE,F
+"Sector I-8/3, Islamabad, Islamabad Capital Territory 44000, Pakistan",Tahir,X,UG,SH,M
+"Sea View Beach, Clifton, Karachi, Sindh 75600, Pakistan",Mehwish,X,PG,CS,F
+"GT Road, Gujranwala, Punjab 52250, Pakistan",Waqar,X,G,AMHS,M
+"Airport Road, Quetta, Balochistan 87300, Pakistan",Laiba,X,UG,MG,F
+"Saddar, Multan, Punjab 60000, Pakistan",Shahid,X,PG,EE,M
+"Bahria Town Phase 8, Rawalpindi, Punjab 46220, Pakistan",Nimra,X,G,SH,F
+"Jinnah Super Market, F-7 Markaz, Islamabad, Islamabad Capital Territory 44000, Pakistan",Yasir,X,UG,CS,M
+"Giga Mall, GT Road, Islamabad, Islamabad Capital Territory 44000, Pakistan",Anum,X,PG,AMHS,F
+"Melody Market, G-6 Markaz, Islamabad, Islamabad Capital Territory 44000, Pakistan",Saad,X,G,MG,M
+"Lakshmi Chowk, Lahore, Punjab 54000, Pakistan",Hira,X,UG,EE,F
+"Defense Chowk, Rawalpindi, Punjab 46000, Pakistan",Zubair,X,PG,SH,M
+"Railway Station Road, Sukkur, Sindh 65200, Pakistan",Aisha,X,G,CS,F
+"Super Market, Saddar, Peshawar, Khyber Pakhtunkhwa 25000, Pakistan",Asad,X,UG,AMHS,M
+"Phase 6, DHA, Lahore, Punjab 54792, Pakistan",Mariam,X,PG,MG,F
+"Gulshan-e-Maymar, Karachi, Sindh 75290, Pakistan",Imran,X,G,EE,M
+"Satellite Town, Bahawalpur, Punjab 63100, Pakistan",Emaan,X,UG,SH,F
+"Chowk Yadgar, Peshawar, Khyber Pakhtunkhwa 25000, Pakistan",Adnan,X,PG,CS,M
+"Liberty Chowk, Sialkot, Punjab 51310, Pakistan",Sadia,X,G,AMHS,F
+"Kohsar Market, F-6/3, Islamabad, Islamabad Capital Territory 44000, Pakistan",Hamza,X,UG,MG,M
+"Defense Phase 2, Karachi, Sindh 75500, Pakistan",Iqra,X,PG,EE,F
+"University Road, Multan, Punjab 60000, Pakistan",Rizwan,X,G,SH,M
+"Saddar, Hyderabad, Sindh 71000, Pakistan",Nadia,X,UG,CS,F
+"Gulistan-e-Johar, Block 15, Karachi, Sindh 75290, Pakistan",Usama,X,PG,AMHS,M
+"Chungi Amar Sadhu, Lahore, Punjab 54770, Pakistan",Zainab,X,G,MG,F
+"Pir Sohawa Road, Islamabad, Islamabad Capital Territory 44000, Pakistan",Shahbaz,X,UG,EE,M
+"Korangi Crossing, Karachi, Sindh 74900, Pakistan",Komal,X,PG,SH,F
+"GT Road, Taxila, Punjab 47080, Pakistan",Mubeen,X,G,CS,M
+"Satellite Town, Quetta, Balochistan 87300, Pakistan",Ayesha,X,UG,AMHS,F
+"G.T. Road, Jhelum, Punjab 49600, Pakistan",Salman,X,PG,MG,M
+"Saddar, Mardan, Khyber Pakhtunkhwa 23200, Pakistan",Mehak,X,G,EE,F
+"Sector E-11/2, Islamabad, Islamabad Capital Territory 44000, Pakistan",Fawad,X,UG,SH,M
+"Model Colony, Malir, Karachi, Sindh 75100, Pakistan",Noor,X,PG,CS,F
+"People's Colony, Gujrat, Punjab 50700, Pakistan",Adeel,X,G,AMHS,M
+"Clock Tower, Sargodha, Punjab 40100, Pakistan",Hina,X,UG,MG,F
+"Shahrah-e-Faisal, Karachi, Sindh 75400, Pakistan",Kashif,X,PG,EE,M
+"Railway Road, Sheikhupura, Punjab 39350, Pakistan",Saba,X,G,SH,F
+"Canal Road, Faisalabad, Punjab 38000, Pakistan",Daniyal,X,UG,CS,M
+"Saddar, Abbottabad, Khyber Pakhtunkhwa 22010, Pakistan",Zoya,X,PG,AMHS,F
+"Main Market, Gulberg II, Lahore, Punjab 54660, Pakistan",Umer,X,G,MG,M
+"Sector G-15/1, Islamabad, Islamabad Capital Territory 44000, Pakistan",Anam,X,UG,EE,F
+"Gulshan Market, Gujranwala, Punjab 52250, Pakistan",Arham,X,PG,SH,M
+"Shalimar Gardens, Lahore, Punjab 54920, Pakistan",Abeer,X,G,CS,F
+"University Road, Tando Jam, Sindh 70060, Pakistan",Saif,X,UG,AMHS,M
+"Allama Iqbal Town, Lahore, Punjab 54570, Pakistan",Zunaira,X,PG,MG,F
+"Jinnah Road, Quetta, Balochistan 87300, Pakistan",Ahsan,X,G,EE,M
+"Satellite Town, Sargodha, Punjab 40100, Pakistan",Hira,X,UG,SH,F
+"G-13 Markaz, Islamabad, Islamabad Capital Territory 44000, Pakistan",Moiz,X,PG,CS,M
+"F-6 Markaz, Super Market, Islamabad, Islamabad Capital Territory 44000, Pakistan",Sana,X,G,AMHS,F
+"Peoples Colony, Faisalabad, Punjab 38000, Pakistan",Taimoor,X,UG,MG,M
+"Bahadurabad, Karachi, Sindh 74800, Pakistan",Maham,X,PG,EE,F
+"Committee Chowk, Rawalpindi, Punjab 46000, Pakistan",Waqas,X,G,SH,M
+"Satellite Town, Sialkot, Punjab 51310, Pakistan",Maryam,X,UG,CS,F
+"Phase 7, Bahria Town, Rawalpindi, Punjab 46220, Pakistan",Sultan,X,PG,AMHS,M
+"Gulshan-e-Ravi, Lahore, Punjab 54000, Pakistan",Nimra,X,G,MG,F
+"Karkhano Market, Peshawar, Khyber Pakhtunkhwa 25000, Pakistan",Yasir,X,UG,EE,M
+"Garden Town, Lahore, Punjab 54600, Pakistan",Anosha,X,PG,SH,F
+"Sector H-8/4, Islamabad, Islamabad Capital Territory 44000, Pakistan",Sohail,X,G,CS,M
+"DHA Phase 2, Karachi, Sindh 75500, Pakistan",Laiba,X,UG,AMHS,F
+"G.T. Road, Wah Cantt, Punjab 47040, Pakistan",Fahad,X,PG,MG,M
+"University Town, Peshawar, Khyber Pakhtunkhwa 25000, Pakistan",Erum,X,G,EE,F
+"Raja Bazaar, Rawalpindi, Punjab 46000, Pakistan",Rehan,X,UG,SH,M
+"Askari 10, Lahore, Punjab 54810, Pakistan",Maira,X,PG,CS,F
+"Gulistan Colony, Faisalabad, Punjab 38000, Pakistan",Saad,X,G,AMHS,M
+"F-8 Markaz, Islamabad, Islamabad Capital Territory 44000, Pakistan",Aiza,X,UG,MG,F
+"Shah Faisal Colony, Karachi, Sindh 75230, Pakistan",Usman,X,PG,EE,M
+"Railway Station Road, Multan, Punjab 60000, Pakistan",Aqsa,X,G,SH,F
+"Satellite Town, Bahawalpur, Punjab 63100, Pakistan",Owais,X,UG,CS,M
+"Hayatabad Phase 2, Peshawar, Khyber Pakhtunkhwa 25000, Pakistan",Zainab,X,PG,AMHS,F
+"G-9 Markaz, Karachi Company, Islamabad, Islamabad Capital Territory 44000, Pakistan",Arsalan,X,G,MG,M
+"Gulshan-e-Iqbal, Block 13-D, Karachi, Sindh 75300, Pakistan",Mahnoor,X,UG,EE,F
+"Chungi No. 9, Multan, Punjab 60000, Pakistan",Imran,X,PG,SH,M
+"Darbar Road, Sialkot, Punjab 51310, Pakistan",Hafsa,X,G,CS,F
+"Bahria Enclave, Islamabad, Islamabad Capital Territory 44000, Pakistan",Danish,X,UG,AMHS,M
+"Model Town, Block D, Lahore, Punjab 54000, Pakistan",Esha,X,PG,MG,F
+"Malir Cantonment, Karachi, Sindh 75100, Pakistan",Zahid,X,G,EE,M
+"Committee Chowk, Faisalabad, Punjab 38000, Pakistan",Mona,X,UG,SH,F
+"Satellite Town, Gujranwala, Punjab 52250, Pakistan",Adeel,X,PG,CS,M
+"Sector I-10/2, Islamabad, Islamabad Capital Territory 44000, Pakistan",Amna,X,G,AMHS,F
+"G.T. Road, Jhelum, Punjab 49600, Pakistan",Raza,X,UG,MG,M
+"Saddar, Hyderabad, Sindh 71000, Pakistan",Hania,X,PG,EE,F
+"Murree Road, Rawalpindi, Punjab 46000, Pakistan",Noman,X,G,SH,M
+"University Road, Peshawar, Khyber Pakhtunkhwa 25000, Pakistan",Alina,X,UG,CS,F
+"Chandni Chowk, Lahore, Punjab 54000, Pakistan",Shahmeer,X,PG,AMHS,M
+"Faisal Town, Lahore, Punjab 54700, Pakistan",Khadija,X,G,MG,F
+"Defense Phase 4, Karachi, Sindh 75500, Pakistan",Talha,X,UG,EE,M
+"G-10 Markaz, Islamabad, Islamabad Capital Territory 44000, Pakistan",Sahar,X,PG,SH,F
+"Clock Tower, Multan, Punjab 60000, Pakistan",Waleed,X,G,CS,M
+"Satellite Town, Rawalpindi, Punjab 46000, Pakistan",Nazia,X,UG,AMHS,F
+"Bahria Town Phase 7, Rawalpindi, Punjab 46220, Pakistan",Furqan,X,PG,MG,M
+"Gulberg III, Lahore, Punjab 54660, Pakistan",Anusha,X,G,EE,F
+"Korangi Industrial Area, Karachi, Sindh 74900, Pakistan",Shayan,X,UG,SH,M
+"Hayatabad Phase 6, Peshawar, Khyber Pakhtunkhwa 25000, Pakistan",Maheen,X,PG,CS,F
+"Sector G-8/4, Islamabad, Islamabad Capital Territory 44000, Pakistan",Junaid,X,G,AMHS,M
+"Model Town, Block E, Lahore, Punjab 54000, Pakistan",Aqsa,X,UG,MG,F
+"Clifton Block 2, Karachi, Sindh 75600, Pakistan",Hamza,X,PG,EE,M
+"Committee Chowk, Sargodha, Punjab 40100, Pakistan",Maliha,X,G,SH,F
+"G.T. Road, Gujrat, Punjab 50700, Pakistan",Saif,X,UG,CS,M
+"F-11 Markaz, Islamabad, Islamabad Capital Territory 44000, Pakistan",Zara,X,PG,AMHS,F
+"Defense Phase 1, Lahore, Punjab 54792, Pakistan",Hassan,X,G,MG,M
+"Gulshan-e-Maymar, Karachi, Sindh 75290, Pakistan",Eman,X,UG,EE,F
+"Satellite Town, Abbottabad, Khyber Pakhtunkhwa 22010, Pakistan",Usman,X,PG,SH,M
+"Clock Tower, Faisalabad, Punjab 38000, Pakistan",Hiba,X,G,CS,F
+"Sector I-9/3, Islamabad, Islamabad Capital Territory 44000, Pakistan",Fahad,X,UG,AMHS,M
+"Garden Town, Multan, Punjab 60000, Pakistan",Zainab,X,PG,MG,F
+"Shahrah-e-Quaideen, Karachi, Sindh 75400, Pakistan",Noman,X,G,EE,M
+"Committee Chowk, Rawalpindi, Punjab 46000, Pakistan",Ayesha,X,UG,SH,F
+"University Road, Hyderabad, Sindh 71000, Pakistan",Sami,X,PG,CS,M
+"F-7 Markaz, Islamabad, Islamabad Capital Territory 44000, Pakistan",Noor,X,G,AMHS,F
+"Model Town, Block F, Lahore, Punjab 54000, Pakistan",Ali,X,UG,MG,M
+"Korangi No. 4, Karachi, Sindh 74900, Pakistan",Sana,X,PG,EE,F
+"Satellite Town, Quetta, Balochistan 87300, Pakistan",Ahmed,X,G,SH,M
+"Clock Tower, Sialkot, Punjab 51310, Pakistan",Rabia,X,UG,CS,F
+"Bahria Enclave, Islamabad, Islamabad Capital Territory 44000, Pakistan",Kamran,X,PG,AMHS,M
+"Hayatabad Phase 7, Peshawar, Khyber Pakhtunkhwa 25000, Pakistan",Mariam,X,G,MG,F
